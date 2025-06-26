@@ -9,28 +9,68 @@
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
+            <Label Text="Calculadora de Descuentos" 
+                   FontSize="20" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center" />
 
-            <Label Text="Producto 1"/>
-            <Entry Text="{Binding Producto1}" Keyboard="Numeric"/>
+            <!-- Producto 1 -->
+            <Label Text="Producto 1:" />
+            <Entry x:Name="Producto1Entry" 
+                   Placeholder="Ingrese el precio"
+                   Keyboard="Numeric" />
 
-            <Label Text="Producto 2"/>
-            <Entry Text="{Binding Producto2}" Keyboard="Numeric"/>
+            <!-- Producto 2 -->
+            <Label Text="Producto 2:" />
+            <Entry x:Name="Producto2Entry" 
+                   Placeholder="Ingrese el precio"
+                   Keyboard="Numeric" />
 
-            <Label Text="Producto 3"/>
-            <Entry Text="{Binding Producto3}" Keyboard="Numeric"/>
+            <!-- Producto 3 -->
+            <Label Text="Producto 3:" />
+            <Entry x:Name="Producto3Entry" 
+                   Placeholder="Ingrese el precio"
+                   Keyboard="Numeric" />
 
-            <Label Text="Subtotal"/>
-            <Entry Text="{Binding Subtotal}" IsReadOnly="True"/>
+            <!-- Subtotal -->
+            <Label Text="Subtotal:" />
+            <Entry x:Name="SubtotalEntry" 
+                   IsReadOnly="True" 
+                   Text="0.00" />
 
-            <Label Text="Descuento"/>
-            <Entry Text="{Binding Descuento}" IsReadOnly="True"/>
+            <!-- Descuento -->
+            <Label Text="Descuento:" />
+            <Entry x:Name="DescuentoEntry" 
+                   IsReadOnly="True" 
+                   Text="0.00" />
 
-            <Label Text="Total a Pagar"/>
-            <Entry Text="{Binding Total}" IsReadOnly="True"/>
+            <!-- Total -->
+            <Label Text="Total a Pagar:" />
+            <Entry x:Name="TotalEntry" 
+                   IsReadOnly="True" 
+                   Text="0.00" />
 
-            <Button Text="Calcular" Command="{Binding CalcularCommand}"/>
-            <Button Text="Limpiar" Command="{Binding LimpiarCommand}"/>
+            <!-- Botones -->
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                <Button Text="Calcular" 
+                        Clicked="OnCalculateClicked"
+                        Grid.Column="0" />
 
+                <Button Text="Limpiar" 
+                        Clicked="OnClearClicked"
+                        Grid.Column="1" />
+            </Grid>
+
+            <!-- Rangos de descuento -->
+            <Border Stroke="LightGray" StrokeShape="RoundRectangle 10" Padding="10">
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Rangos de Descuento:" FontAttributes="Bold" />
+                    <Label Text="L0.00 - L999.99: No aplica descuento" />
+                    <Label Text="L1,000.00 - L4,999.99: 10% descuento" />
+                    <Label Text="L5,000.00 - L9,999.99: 20% descuento" />
+                    <Label Text="L10,000.00 en adelante: 30% descuento" />
+                </VerticalStackLayout>
+            </Border>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
