@@ -1,0 +1,37 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:ExamenMvvm.ViewModels"
+             x:Class="ExamenMvvm.Views.MainPage">
+
+    <ContentPage.BindingContext>
+        <vm:MainViewModel/>
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Label Text="Producto 1"/>
+            <Entry Text="{Binding Producto1}" Keyboard="Numeric"/>
+
+            <Label Text="Producto 2"/>
+            <Entry Text="{Binding Producto2}" Keyboard="Numeric"/>
+
+            <Label Text="Producto 3"/>
+            <Entry Text="{Binding Producto3}" Keyboard="Numeric"/>
+
+            <Label Text="Subtotal"/>
+            <Entry Text="{Binding Subtotal}" IsReadOnly="True"/>
+
+            <Label Text="Descuento"/>
+            <Entry Text="{Binding Descuento}" IsReadOnly="True"/>
+
+            <Label Text="Total a Pagar"/>
+            <Entry Text="{Binding Total}" IsReadOnly="True"/>
+
+            <Button Text="Calcular" Command="{Binding CalcularCommand}"/>
+            <Button Text="Limpiar" Command="{Binding LimpiarCommand}"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
+
